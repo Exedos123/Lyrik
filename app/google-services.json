@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "736177342839",
+    "project_id": "lyrika-2235f",
+    "storage_bucket": "lyrika-2235f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736177342839:android:4edf5d56584d82a23b3972",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBznnYsnw_TeXvIgWdXSpJkqlQpr2FFRw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736177342839-ke6v3l1lb1t7n68f5ng6ogklh46u1p5b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.exedos.Lyrika"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736177342839:android:abf6a5061fff4a3d3b3972",
+        "android_client_info": {
+          "package_name": "com.exedos.lyrik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBznnYsnw_TeXvIgWdXSpJkqlQpr2FFRw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736177342839-ke6v3l1lb1t7n68f5ng6ogklh46u1p5b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.exedos.Lyrika"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736177342839:android:a72aea99485770573b3972",
+        "android_client_info": {
+          "package_name": "com.lyrika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBznnYsnw_TeXvIgWdXSpJkqlQpr2FFRw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736177342839-t3alh312f3ajgb767hkefervqll3430p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736177342839-ke6v3l1lb1t7n68f5ng6ogklh46u1p5b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.exedos.Lyrika"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

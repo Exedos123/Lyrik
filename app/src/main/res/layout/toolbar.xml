@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+
+    android:elevation="5dp"
+    android:id="@+id/myToolBar">
+    <androidx.appcompat.widget.ActionMenuView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/account_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@+id/add_song_btn_app_bar"
+            android:layout_toLeftOf="@+id/add_song_btn_app_bar"
+            android:src="@drawable/account_black" />
+
+        <ImageView
+            android:id="@+id/Home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginEnd="25dp"
+
+            android:layout_toLeftOf="@+id/account_img"
+            android:layout_toEndOf="@+id/Home_btn"
+            android:layout_toRightOf="@+id/Home_btn"
+            android:text="Lyrik"
+            android:textStyle="bold"
+            android:textColor="@color/logoColor"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/add_song_btn_app_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/song_add" />
+
+
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>
