@@ -1,7 +1,10 @@
 package com.exedos.lyrik;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
     private List<HomeListModel> homeListModelList;
     private List<HomeListModel>homeListModelListAll;
+    public String TAG;
 
     public HomeListAdapter(List<HomeListModel> homeListModelList) {
         this.homeListModelList = homeListModelList;
@@ -38,7 +42,18 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         String sTitle = homeListModelList.get(position).getSongTitle();
 
 
-        viewHolder.setData(sTitle);
+        if(sTitle == null){
+            viewHolder.itemView.setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = viewHolder.itemView.getLayoutParams();
+            params.height = 0;
+            params.width = 0;
+            viewHolder.itemView.setLayoutParams(params);
+        }
+        else{
+            viewHolder.setData(sTitle);
+        }
+
+
 
 
     }
@@ -99,11 +114,26 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
             songTitle = itemView.findViewById(R.id.layout_song_title);
 
+
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    String Acty = itemView.getContext().getClass().getSimpleName().toString();
                     Intent SongDetailsIntent = new Intent(itemView.getContext(), Song_View_page.class);
-                    SongDetailsIntent.putExtra("Song_Id",homeListModelList.get(getAdapterPosition()).getSongTitle());
+                    Bundle extras = new Bundle();
+                    //SongDetailsIntent.putExtra("Song_Id",homeListModelList.get(getAdapterPosition()).getSongId());
+                    extras.putString("Song_Id",homeListModelList.get(getAdapterPosition()).getSongId());
+                    extras.putString("Activity_Name",Acty);
+                   SongDetailsIntent.putExtras(extras);
+
+                    //SongDetailsIntent.putExtra("Activity_Name",itemView.getContext().toString());
+
+
+
+                    Log.d(TAG, "Actyyyyy" + Acty);
+
 
                     itemView.getContext().startActivity(SongDetailsIntent);
                 }
@@ -119,7 +149,12 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         }
 
         public void setData(String sTitle) {
-            songTitle.setText(sTitle);
+
+
+                songTitle.setText(sTitle);
+
+
+
         }
 
 

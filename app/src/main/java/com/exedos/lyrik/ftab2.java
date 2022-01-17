@@ -47,8 +47,8 @@ public class ftab2 extends Fragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot documentSnapshot = task.getResult();
 
-                    if ((documentSnapshot.getString("Lyrik_E")!=null) && (documentSnapshot.getString("Title"))!=null){
-                        titleE.setText(documentSnapshot.get("Title").toString());
+                    if ((documentSnapshot.getString("Lyrik_E")!=null) && (documentSnapshot.getString("Title_E"))!=null){
+                        titleE.setText(documentSnapshot.get("Title_E").toString());
 
                         englishL.setText(documentSnapshot.get("Lyrik_E").toString());
                     }else{

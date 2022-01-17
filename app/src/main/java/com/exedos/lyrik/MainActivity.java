@@ -16,14 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.TextView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,8 +45,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        songListRecyclerView = findViewById(R.id.home_list_recyclerview);
+        songListRecyclerView = findViewById(R.id.tel_list_recyclerview);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         songListRecyclerView.setLayoutManager(layoutManager);
@@ -286,6 +286,22 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.searchbar_menu_main, menu);
         MenuItem item1 = menu.findItem(R.id.searchBtn);
+        MenuItem itemswitch = menu.findItem(R.id.switch_action_bar);
+        itemswitch.setActionView(R.layout.use_switch);
+
+        final SwitchCompat sw =  menu.findItem(R.id.switch_action_bar).getActionView().findViewById(R.id.switch2);
+
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Intent Langintent = new Intent(MainActivity.this, English_Main.class);
+                    startActivity(Langintent);
+                    finish();
+                   // Toast.makeText(MainActivity.this, "Switch is working", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) item1.getActionView();
 
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
@@ -311,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
+
 
         if (id == R.id.uploadBtn) {
             if(currentUser == null) {
@@ -339,6 +356,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+
+//
+//            else if(id == R.id.English){
+//                Intent Eng = new Intent(MainActivity.this, English_Main.class);
+//                startActivity(Eng);
+//
+//            }
 
 
         return super.onOptionsItemSelected(item);
@@ -401,8 +426,18 @@ public class MainActivity extends AppCompatActivity {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                     //HomeListModel homeListModel = documentSnapshot.toObject(HomeListModel.class);
                     // homeListModel.setSongTitle(documentSnapshot.getId());
-                    //homeListModelList.add(new HomeListModel(documentSnapshot.get("Title").toString()));
-                    homeListModelList.add(new HomeListModel(documentSnapshot.getId()));
+                    String TeluguTitle = documentSnapshot.getString("Title_T");
+                    if(TeluguTitle == null){
+                       // Toast.makeText(MainActivity.this, "PLease Field is Missing ", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+
+                        homeListModelList.add(new HomeListModel(documentSnapshot.get("Title_T").toString(),documentSnapshot.getId()));
+                        //homeListModelList.add(new HomeListModel(documentSnapshot.getId()));
+
+                    }
+
+
                 }
                 homeListAdapter = new HomeListAdapter(homeListModelList);
                 songListRecyclerView.setAdapter(homeListAdapter);
@@ -421,6 +456,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d(TAG, "Activity Name: " + this.getClass().getSimpleName());
     }
 
 }

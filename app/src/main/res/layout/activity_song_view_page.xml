@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Song_View_page"
-    >
+    tools:context=".Song_View_page">
 
     <include
-        android:id="@+id/include2"
-        layout="@layout/toolbar" />
+        android:id="@+id/include_upl"
+        layout="@layout/app_bar" />
 
 
     <com.google.android.material.tabs.TabLayout
@@ -21,7 +20,7 @@
         android:elevation="05dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:layout_constraintTop_toBottomOf="@+id/include_upl"
         app:tabTextColor="@color/white"
         tools:ignore="MissingConstraints">
 

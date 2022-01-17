@@ -1,17 +1,25 @@
 package com.exedos.lyrik;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -37,12 +45,16 @@ public class Song_View_page extends AppCompatActivity {
     PageAdapter pageAdater;
     private Dialog signInDialog;
     private FirebaseUser currentUser;
+    public static String actvtyName,songId;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_view_page);
+
+
         // Dialog box
         signInDialog = new Dialog(Song_View_page.this);
         signInDialog.setContentView(R.layout.sign_in_dialog);
@@ -80,22 +92,33 @@ public class Song_View_page extends AppCompatActivity {
         //Dialog box
 
         // String Tempholder = getIntent().getStringExtra("ListClick");
-        toolbar = findViewById(R.id.myToolBar);
+        toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
-        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.myToolBar);
+        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar1);
+
+        Bundle extras = getIntent().getExtras();
 
 
-        tabLayout =findViewById(R.id.tabLayout);
+        if (extras != null) {
+            actvtyName = extras.getString("Activity_Name");
+            // songId = extras.getString("Song_Id");
+            Log.d(TAG, "Active" + actvtyName);
+            // and get whatever type user account id is
+        }
+//        actvtyName = getIntent().getStringExtra("Activity_Name");
+//          Log.d(TAG, "Active" + actvtyName);
+
+
+        tabLayout = findViewById(R.id.tabLayout);
         tabitem1 = findViewById(R.id.tab1);
         tabitem2 = findViewById(R.id.tab2);
-      //  tabitem3 = findViewById(R.id.tab3);
+        //  tabitem3 = findViewById(R.id.tab3);
         viewPager = findViewById(R.id.song_view_pager);
 
-        pageAdater=new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        pageAdater = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         //  pageAdater = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdater);
-
 
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -103,7 +126,7 @@ public class Song_View_page extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if (tab.getPosition()==0 || tab.getPosition()==1 )///|| tab.getPosition()==2
+                if (tab.getPosition() == 0 || tab.getPosition() == 1)///|| tab.getPosition()==2
                     // viewPager.setCurrentItem(tab.getPosition());
                     pageAdater.notifyDataSetChanged();
 
@@ -122,58 +145,57 @@ public class Song_View_page extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
 
-        // Adding App Bar Code
-        homeBtn = findViewById(R.id.Home_btn);
-        uploadBtn = findViewById(R.id.add_song_btn_app_bar);
-        accountBtn = findViewById(R.id.account_img);
-
-
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Homeintent = new Intent(Song_View_page.this, MainActivity.class);
-                startActivity(Homeintent);
-
-
-                //  frameLayout = findViewById(R.id.main_frame_layout);
-
-
-            }
-        });
-
-        accountBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(currentUser == null) {
-                    signInDialog.show();
-                }else {
-                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
-                    Intent Homeintent = new Intent(Song_View_page.this, MyAccountPage.class);
-                    startActivity(Homeintent);
-                }
-
-
-            }
-        });
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(currentUser == null) {
-                    signInDialog.show();
-                }else {
-                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
-                    Intent Uploadintent = new Intent(Song_View_page.this, Upload_Song.class);
-                    startActivity(Uploadintent);
-
-                }
-
-
-            }
-        });
-
-        //Appbar Code
+//        // Adding App Bar Code
+//        homeBtn = findViewById(R.id.Home_btn);
+//        uploadBtn = findViewById(R.id.add_song_btn_app_bar);
+//        accountBtn = findViewById(R.id.account_img);
+//
+//
+//        homeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent Homeintent = new Intent(Song_View_page.this, MainActivity.class);
+//                startActivity(Homeintent);
+//
+//
+//                //  frameLayout = findViewById(R.id.main_frame_layout);
+//
+//
+//            }
+//        });
+//
+//        accountBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if(currentUser == null) {
+//                    signInDialog.show();
+//                }else {
+//                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+//                    Intent Homeintent = new Intent(Song_View_page.this, MyAccountPage.class);
+//                    startActivity(Homeintent);
+//                }
+//
+//
+//            }
+//        });
+//        uploadBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(currentUser == null) {
+//                    signInDialog.show();
+//                }else {
+//                    // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+//                    Intent Uploadintent = new Intent(Song_View_page.this, Upload_Song.class);
+//                    startActivity(Uploadintent);
+//
+//                }
+//
+//
+//            }
+//        });//Appbar Code
         firebaseFirestore = FirebaseFirestore.getInstance();
+    }
 
 //        firebaseFirestore.collection("Songs").document(getIntent().getStringExtra("Song_Id"))
 //                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -200,7 +222,7 @@ public class Song_View_page extends AppCompatActivity {
 //addDb();
 //addAnotherDb();
         // display(Tempholder);
-    }
+
 
 
  /*   protected void addDb() {
@@ -302,6 +324,57 @@ public class Song_View_page extends AppCompatActivity {
 
   */
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.searchbar_menu_main, menu);
+        MenuItem item1 = menu.findItem(R.id.searchBtn);
+        item1.setVisible(false);
+        MenuItem itemswitch = menu.findItem(R.id.switch_action_bar);
+        itemswitch.setVisible(false);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.uploadBtn) {
+            if(currentUser == null) {
+                signInDialog.show();
+            }else {
+                // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                Intent UploadIntent = new Intent(Song_View_page.this, Upload_Song.class);
+                startActivity(UploadIntent);
+            }
+
+
+
+            return true;
+
+        }
+        else if (id == R.id.AccountBtn) {
+            if(currentUser == null) {
+                signInDialog.show();
+            }else {
+                // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                Intent UploadIntent = new Intent(Song_View_page.this, MyAccountPage.class);
+                startActivity(UploadIntent);
+            }
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+
+    /////////////////
     @Override
     protected void onStart() {
         super.onStart();

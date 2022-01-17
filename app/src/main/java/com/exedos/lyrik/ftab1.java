@@ -39,15 +39,15 @@ public class ftab1 extends Fragment {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        firebaseFirestore.collection("Songs").document(getActivity().getIntent().getStringExtra("Song_Id"))
+        firebaseFirestore.collection("Songs").document(getActivity().getIntent().getExtras().getString("Song_Id"))
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot documentSnapshot = task.getResult();
 
-                    if ((documentSnapshot.getString("Lyrik_T")!=null) && (documentSnapshot.getString("Title"))!=null){
-                        titleView.setText(documentSnapshot.get("Title").toString());
+                    if ((documentSnapshot.getString("Lyrik_T")!=null) && (documentSnapshot.getString("Title_T"))!=null){
+                        titleView.setText(documentSnapshot.get("Title_T").toString());
 
 
                         teluguL.setText(documentSnapshot.get("Lyrik_T").toString());

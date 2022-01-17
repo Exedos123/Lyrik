@@ -211,7 +211,7 @@ public class User_Upload_List extends AppCompatActivity {
                     //HomeListModel homeListModel = documentSnapshot.toObject(HomeListModel.class);
                     // homeListModel.setSongTitle(documentSnapshot.getId());
                     //homeListModelList.add(new HomeListModel(documentSnapshot.get("Title").toString()));
-                    homeListModelList.add(new HomeListModel(documentSnapshot.getId()));
+                    homeListModelList.add(new HomeListModel( documentSnapshot.getId(), documentSnapshot.getId()));
                 }
                 homeListAdapter = new HomeListAdapter(homeListModelList);
                 uploadedrecyclerview.setAdapter(homeListAdapter);
