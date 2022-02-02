@@ -348,6 +348,7 @@ public class Song_View_page extends AppCompatActivity {
                 // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
                 Intent UploadIntent = new Intent(Song_View_page.this, Upload_Song.class);
                 startActivity(UploadIntent);
+                finish();
             }
 
 
@@ -362,6 +363,7 @@ public class Song_View_page extends AppCompatActivity {
                 // gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
                 Intent UploadIntent = new Intent(Song_View_page.this, MyAccountPage.class);
                 startActivity(UploadIntent);
+                finish();
             }
 
         }

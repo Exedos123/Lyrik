@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="wrap_content"
@@ -11,9 +12,11 @@
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textOff="TEL"
-        android:textOn="ENG"
+        android:textOff="@string/telugu"
+        android:textOn="@string/english"
         app:showText="true"
+        app:switchTextAppearance="@style/Theme.MaterialComponents.DayNight"
+        android:textColor="@color/black"
         android:thumb="@drawable/switch_thumb"
         app:track="@drawable/switch_track"/>
 

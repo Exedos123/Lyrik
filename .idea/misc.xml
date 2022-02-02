@@ -9,9 +9,9 @@
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/language_selector.xml" value="0.19907407407407407" />
-        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switch_thumb.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switch_thumb.xml" value="0.1025" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switch_thumb_true.xml" value="0.16296296296296298" />
-        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switch_track.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switch_track.xml" value="0.1" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/switcht_thumb_false.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/thumb.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/drawable/thumb_selector.xml" value="0.1" />
@@ -41,7 +41,7 @@
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/layout/profile_datalayout.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/layout/sign_in_dialog.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/layout/toolbar.xml" value="0.16802536231884058" />
-        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/layout/use_switch.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/layout/use_switch.xml" value="0.6666666666666666" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/menu/searchbar_menu_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/Exedos/AndroidStudioProjects/Lyrik/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />

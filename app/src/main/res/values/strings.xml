@@ -6,6 +6,9 @@
     <string name="this_is_for_hindi_song_lyric">This is for Hindi Song Lyric</string>
     <string name="this_is_for_english_song_lyric">This is for English Song Lyric</string>
     <string name="this_is_for_telugu_song_lyric">This is for Telugu Song Lyric</string>
+    <string name="telugu">Telugu</string>
+    <string name="english">English</string>
+
 
     <string-array name="Select_language">
         <item>SelectLanguage</item>

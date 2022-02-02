@@ -217,26 +217,65 @@ public class Upload_Song extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     private void checkInputs() {
 
-        if (!TextUtils.isEmpty(songTitle.getText()) && !songTitle.getText().toString().matches(titlePattern)) {
-            if (!TextUtils.isEmpty(songLyric.getText())) {
-
-
-                but1.setEnabled(true);
-                but1.setTextColor(Color.rgb(255, 255, 255));
-
-            }else {
-
-                but1.setEnabled(false);
-                but1.setTextColor(Color.argb(50, 255, 255, 255));
-
-            }
-
-        } else {
-
-            songTitle.setError("Please Enter Telugu Title - \n" +
-                    "దయచేసి తెలుగులో నమోదు చేయండి");
+//        if (!TextUtils.isEmpty(songTitle.getText()) && !songTitle.getText().toString().matches(titlePattern)) {
+//            if (!TextUtils.isEmpty(songLyric.getText())) {
+//
+//
+//                but1.setEnabled(true);
+//                but1.setTextColor(Color.rgb(255, 255, 255));
+//
+//            }else {
+//
+//                but1.setEnabled(false);
+//                but1.setTextColor(Color.argb(50, 255, 255, 255));
+//
+//            }
+//
+//        } else {
+//
+////            songTitle.setError("Please Enter Telugu Title - \n" +
+////                    "దయచేసి తెలుగులో నమోదు చేయండి");
+//            songTitle.setError("this field is mandatory");
+//            but1.setEnabled(false);
+//            but1.setTextColor(Color.argb(50, 255, 255, 255));
+//
+//        }
+        if (TextUtils.isEmpty(songTitle.getText())){
+            songTitle.setError("please fill this field");
             but1.setEnabled(false);
             but1.setTextColor(Color.argb(50, 255, 255, 255));
+        }else
+        {
+            if (songTitle.getText().toString().matches(titlePattern)){
+                songTitle.setError("this is English Song Title");
+                if (!TextUtils.isEmpty(songLyric.getText())) {
+
+
+                    but1.setEnabled(true);
+                    but1.setTextColor(Color.rgb(255, 255, 255));
+
+                }else {
+                    songLyric.setError("please paste your Lyric");
+                    but1.setEnabled(false);
+                    but1.setTextColor(Color.argb(50, 255, 255, 255));
+
+                }
+            }else{
+                songTitle.setError("this is Telugu Song \n" +
+                    "దయచేసి తెలుగులో నమోదు చేయండి");
+                if (!TextUtils.isEmpty(songLyric.getText())) {
+
+
+                    but1.setEnabled(true);
+                    but1.setTextColor(Color.rgb(255, 255, 255));
+
+                }else {
+                    songLyric.setError("please paste your Lyric");
+                    but1.setEnabled(false);
+                    but1.setTextColor(Color.argb(50, 255, 255, 255));
+
+                }
+            }
 
         }
 
@@ -297,9 +336,9 @@ public class Upload_Song extends AppCompatActivity {
 
         // String tL2 = lySongE;
         //  String tL3 = lySongH;
-        user.put("Title", tS1);
-        user1.put("Title", tS);
-        user2.put("Title", tS1);
+        user.put("Title_T", tS1);
+        user1.put("Title_E", tS);
+       // user2.put("Title", tS1);
         user.put("Lyrik_T", tL1);
         user1.put("Lyrik_E", tL2);
         //user2.put("Lyrik_H", tL3);

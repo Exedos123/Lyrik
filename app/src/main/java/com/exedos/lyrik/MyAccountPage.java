@@ -42,6 +42,7 @@ public class MyAccountPage extends AppCompatActivity {
                 startActivity(registerIntent);
                 finish();
 
+
             }
         });
 
